@@ -27,22 +27,22 @@
         <div class="color-container">
         <label for="color-select">Choose Color:</label>
         <select id="color-select" name="colors" onchange="changeColor(this.value)">
+            <option value="Black">Default</option>
             <option value="Blue">Blue</option>
             <option value="Red">Red</option>
             <option value="Green">Green</option>
             <option value="Yellow">Yellow</option>
-            <option value="Black">Default</option>
         </select>
         </div>
         <div class="color-bg">
          <label for="bg-select">Choose Background Color:</label>
         <select id="bg-select" name="colors" onchange="changeBgColor(this.value)">
-            <option value="Blue">Blue</option>
+            <option value="white">Default</option>
             <option value="Red">Red</option>
             <option value="Green">Green</option>
             <option value="Yellow">Yellow</option>
             <option value="Black">Black</option>
-            <option value="White">Default</option>
+            <option value="Blue">Blue</option>
         </select>
         </div>
         <footer>
@@ -64,7 +64,7 @@
                     errorCorrectionLevel:"M"
                 }, 
                 dotsOptions: {
-                    color:"blue",
+                    color:"black",
                     type:"rounded"
                 },
                 backgroundOptions:{
@@ -96,3 +96,4 @@
     </body>
 
 </html>
+
