@@ -17,7 +17,7 @@
 h1{
     background-color: black;
     text-align: center;
-    padding:100px;
+    padding:100px 0;
     background: radial-gradient(circle, thistle, black, rgb(176, 176, 119), blue);
     flex-shrink: 0;
     background-size: 400% 400%;
@@ -173,4 +173,5 @@ footer a{
 .fa-envelope:hover{
     transform: scale(1.05);
     color: red;
+
 }
