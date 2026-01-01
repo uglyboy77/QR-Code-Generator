@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <title>QR Code generator</title>
+        <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script> 
+        <link  rel="stylesheet" href="Untitled-1.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    </head>
+    <body>
+        <div class="header">
+        <h1>QR CODE GENERATOR</h1>
+        <p>Generate your customized QR code in seconds.</p>
+        </div>
+        <div class="input-field">
+        <input type="text" id="link" placeholder="enter your URL" />
+        <button onclick="generate()">GENERATE</button>
+        </div>
+        <div class="QR-container">
+            <p>YOUR QR CODE</p>
+        <div id="qr-code"></div>
+        </div>
+        <div class="color-container">
+        <label for="color-select">Choose Color:</label>
+        <select id="color-select" name="colors" onchange="changeColor(this.value)">
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Black">Default</option>
+        </select>
+        </div>
+        <div class="color-bg">
+         <label for="bg-select">Choose Background Color:</label>
+        <select id="bg-select" name="colors" onchange="changeBgColor(this.value)">
+            <option value="Blue">Blue</option>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="Yellow">Yellow</option>
+            <option value="Black">Black</option>
+            <option value="White">Default</option>
+        </select>
+        </div>
+        <footer>
+            <p>Made by Baffour Brenya.</p>
+            <h6>All rights reserved - 2026</h6>
+            <h5>Catch me on:</h5>
+            <a href="https://github.com/Uglyboy77"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/agyenim-boateng/"><i class="fab fa-linkedin"></i></a> 
+            <a href="mailto:baffourbrenya@gmail.com"><i class="fas fa-envelope"></i></a>
+        </footer>
+        <script>
+            const Qrcode = new QRCodeStyling({
+                width: 200, 
+                height:200,
+                data:"https://uglyboy77.github.io/uglyboy-portfolio/",
+                image:null,
+                margin:1,
+                qrOptions:{
+                    errorCorrectionLevel:"M"
+                }, 
+                dotsOptions: {
+                    color:"blue",
+                    type:"rounded"
+                },
+                backgroundOptions:{
+                    color:"white"
+                }
+            });
+            function generate() {
+                const data = document.getElementById("link").value;
+                Qrcode.update({
+                    data: data
+                });
+            }
+            function changeColor(color) {
+                Qrcode.update({
+                    dotsOptions: {
+                        color: color.toLowerCase()
+                    }
+                });
+            }
+            function changeBgColor(color) {
+                Qrcode.update({
+                    backgroundOptions: {
+                        color: color.toLowerCase()
+                    }
+                })
+            }
+             Qrcode.append(document.getElementById("qr-code"));
+        </script>
+    </body>
+</html>
